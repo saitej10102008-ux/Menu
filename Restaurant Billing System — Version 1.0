@@ -1,0 +1,72 @@
+#include <stdio.h>   
+
+void showmenu() { 
+    printf("===================================== \n"); 
+        printf("            FOOD MENU       \n"); 
+        printf("===================================== \n"); 
+        printf("1. Burger             - Inr. 120 \n");  
+        printf("2. Pizza              - Inr. 200 \n");
+        printf("3. Sandwich           - Inr. 100 \n");
+        printf("4. French Fries       - Inr. 80 \n");
+        printf("5. Exit \n"); 
+} 
+
+
+
+int main () {  
+        int n, subtotal, quantity, m, total = 0;
+        do { 
+        showmenu ();
+        printf("Enter your choice: "); 
+        scanf("%d", &n);
+             
+    if  (n>=1 && n<=4) { 
+        printf("Enter quantity: "); 
+        scanf("%d", &quantity);
+                if (quantity<=0) {
+                    printf("Invalid quantity \n"); 
+                    do {
+                    printf("Enter quantity: "); 
+                    scanf("%d", &quantity);
+                    } while (quantity<=0);
+                }
+
+            if (n==1) { 
+        subtotal = 120*quantity; 
+        }
+        else if (n==2) { 
+        subtotal = 200*quantity; 
+            }
+        else if (n==3) { 
+            subtotal = 100*quantity; 
+        }
+        else if (n==4) { 
+            subtotal = 80*quantity; 
+        } 
+        printf("Subtotal: %d \n", subtotal);
+            total = total + subtotal;
+            do {
+        printf("Do you want anymore ? yes(1), no(0): "); 
+        scanf("%d", &m); 
+        if (m!=0 && m!=1) {
+        printf("Invalid choice! Enter 1 or 0.\n");
+        
+        }
+            } while (m!=0 && m!=1); 
+        
+
+        if (m==0) {
+            break;
+        }
+    }
+    else if (n==5) { 
+            printf("Thank you ! \n");
+                break;
+            }
+    else  {
+        printf("Invalid option ! \n");  
+        }
+    } while (m==1); 
+    printf("Total amount: %d\n", total);
+    return 0;
+}
